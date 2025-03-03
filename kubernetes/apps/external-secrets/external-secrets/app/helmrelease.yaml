@@ -3,17 +3,13 @@
 apiVersion: helm.toolkit.fluxcd.io/v2
 kind: HelmRelease
 metadata:
-  name: silence-operator-crds
+  name: external-secrets
 spec:
   interval: 1h
-  chart:
-    spec:
-      chart: silence-operator-crds
-      version: 0.0.2
-      sourceRef:
-        kind: HelmRepository
-        name: wiremind
-        namespace: flux-system
+  chartRef:
+    kind: OCIRepository
+    name: external-secrets
+    namespace: external-secrets
   install:
     remediation:
       retries: 3
@@ -22,3 +18,6 @@ spec:
     remediation:
       strategy: rollback
       retries: 3
+  valuesFrom:
+    - kind: ConfigMap
+      name: external-secrets-values
