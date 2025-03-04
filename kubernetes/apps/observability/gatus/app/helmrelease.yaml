@@ -95,7 +95,7 @@ spec:
       app:
         className: external
         hosts:
-          - host: status.devbu.io
+          - host: status.tslamars.com
             paths:
               - path: /
                 service:
