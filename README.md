@@ -1,6 +1,35 @@
+# How I got 1Password working:
+
+- Create external-secrets namespace
+```
+kubectl create namespace external-secrets
+```
+
+- Upload 1Password secret
+```
+kubectl apply -f kubernetes/apps/external-secrets/onepassword/app/onepassword-secret.yaml
+```
+
 # How I got ceph-rook working:
 
-Manually install CRDs:
+- Install Rook Ceph CRDs
+```
+kubectl apply -f https://raw.githubusercontent.com/rook/rook/master/deploy/examples/crds.yaml
+```
+
+- Install Kubernetes Volume Snapshot CRDs
+```
+kubectl apply -f https://raw.githubusercontent.com/kubernetes-csi/external-snapshotter/master/client/config/crd/snapshot.storage.k8s.io_volumesnapshotclasses.yaml
+kubectl apply -f https://raw.githubusercontent.com/kubernetes-csi/external-snapshotter/master/client/config/crd/snapshot.storage.k8s.io_volumesnapshotcontents.yaml
+kubectl apply -f https://raw.githubusercontent.com/kubernetes-csi/external-snapshotter/master/client/config/crd/snapshot.storage.k8s.io_volumesnapshots.yaml
+```
+
+- Verify all CRDs
+```
+kubectl get crd | grep -E "ceph|snapshot|csi"
+```
+
+task
 
 ```
 kubectl apply -f https://raw.githubusercontent.com/rook/rook/master/deploy/examples/crds.yaml
