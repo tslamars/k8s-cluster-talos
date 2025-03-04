@@ -4,8 +4,6 @@ apiVersion: helm.toolkit.fluxcd.io/v2
 kind: HelmRelease
 metadata:
   name: onepassword
-  annotations:
-    force-redeploy: "2025-03-04T05:49:00Z"
 spec:
   interval: 1h
   chartRef:
