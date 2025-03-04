@@ -76,7 +76,7 @@ spec:
         useAllNodes: true
         useAllDevices: false
         devices:
-      - name: "/dev/sdb"
+          - name: "/dev/disk/by-id/scsi-0QEMU_QEMU_HARDDISK_drive-scsi1"
         #devicePathFilter: /dev/disk/by-id/nvme-Micron_7450_MTFDKBA800TFS_.*
         config:
           osdsPerDevice: "1"
