@@ -21,3 +21,4 @@ talosconfig
 Thumbs.db
 1password-credentials.json
 onepassword-secret.yaml
+onepassword-connect.secret.yaml.sc
